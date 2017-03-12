@@ -1,60 +1,69 @@
+function Dmove_keyboard(obj){
+
+$("#keyboard").addClass("skin"+obj.skin);
+
 //键盘部分JS
-$("#jianpan .title").css("line-height",$("#jianpan").height()/5+"px");
-function xfjianpan(id) {
-    //xfjianpan(id),当id为input的id，如果id==false时，键盘隐藏
+$("#keyboard .title").css("line-height",$("#keyboard").height()/5+"px");
 
-    var jpnub = $("#xfjp td").length;
+$(".keyboard-bind").focus(function(){
+    var input = $(this);
 
-    move("jianpan");        //开启键盘可移动
+    var jpnub = $("#xfkb td").length;
 
-    $("#xfjp td").unbind("click");
-
-    if (id != false) {          
-        $("#jianpan").show();
-        var xfjp_text = $("#"+id).val();                        //获取input框当前的val值
-
-
-        $(".input_on").removeClass("input_on");
-        $("#"+id).addClass("input_on");                         //设置input框选中时的样式
-
-        $("#jptitle").html($("#"+id).attr("placeholder"));      //键盘标题，自动获取input的placeholder值
-
-        $("#xfjp td").click(function () {
-            var click = $(this).html();                         //获取点击按键的内容
-
-            //特殊按键在这添加事件
-            //判断点击的按键是否有特殊事件，如果没有则按键内容加在input文本后面
-            if (click == "清空") {
-                xfjp_text = "";
-                $("#"+id).val(xfjp_text);
-            }else if(click == "shift"){
-                for(i=0;i<jpnub;i++){
-                        $("#xfjp td:eq("+i+")").html($("#xfjp td:eq("+i+")").html().toUpperCase());
-                    }
-            }else if(click == "SHIFT"){
-                for(i=0;i<jpnub;i++){
-                        $("#xfjp td:eq("+i+")").html($("#xfjp td:eq("+i+")").html().toLowerCase());
-                    }
-            }else if(click == "空格"){
-                xfjp_text = xfjp_text + " ";
-                $("#"+id).val(xfjp_text);
-            }else {
-                xfjp_text = xfjp_text + click;
-                $("#"+id).val(xfjp_text);
-            }
-
-            $("#"+id).focus();
-        })
-    }else{
-        $(".input_on").removeClass("input_on");                    //移除选中input的选中样式
-        $("#jianpan").hide();
+    if(obj.move){
+        $("#keyboard .title").css("cursor","move");
+        move("keyboard");        //开启键盘可移动
     }
-}
+
+
+    $("#xfkb td").unbind("click");
+        
+    $("#keyboard").show();
+    var xfkb_text = input.val();                        //获取input框当前的val值
+
+
+    $(".input_on").removeClass("input_on");
+    input.addClass("input_on");                         //设置input框选中时的样式
+
+    $("#jptitle").html(input.attr("placeholder"));      //键盘标题，自动获取input的placeholder值
+
+    $("#xfkb td").click(function () {
+        var click = $(this).html();                         //获取点击按键的内容
+        //特殊按键在这添加事件
+        //判断点击的按键是否有特殊事件，如果没有则按键内容加在input文本后面
+        if (click == "清空") {
+            xfkb_text = "";
+            input.val(xfkb_text);
+        }else if(click == "shift"){
+            for(i=0;i<jpnub;i++){
+                    $("#xfkb td:eq("+i+")").html($("#xfkb td:eq("+i+")").html().toUpperCase());
+                }
+        }else if(click == "SHIFT"){
+            for(i=0;i<jpnub;i++){
+                    $("#xfkb td:eq("+i+")").html($("#xfkb td:eq("+i+")").html().toLowerCase());
+                }
+        }else if(click == "空格"){
+            xfkb_text = xfkb_text + " ";
+            input.val(xfkb_text);
+        }else {
+            xfkb_text = xfkb_text + click;
+            input.val(xfkb_text);
+        }
+
+        input.focus();
+    })
+
+})
+
+$(".keyboard_hide").click(function(){
+    $(".input_on").removeClass("input_on");                    //移除选中input的选中样式
+    $("#keyboard").hide();
+})
 
 
 
 
-//鼠标按住拖动部分JS
+//鼠标按住键盘头部拖动JS
 function unmove(obj){
     $("#" + obj + " .title").unbind("mousedown");
 }
@@ -93,4 +102,7 @@ function move(obj){
             $(document).unbind("mousemove mouseup");
         })
     }
+}
+
+
 }

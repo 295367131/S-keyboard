@@ -71,68 +71,103 @@ body {
     margin: 0 10px 5px;
 }
 
-#jianpan {
+
+
+/*键盘核心CSS*/
+#keyboard {
     position: absolute;
-    background: #ffffff;
-    border-radius: 5px;
     bottom: 50px;
     right: 50px;
     z-index: 9999;
-    width: 45%;
-    height: 30%;
+    width: 500px;
+    height: 240px;
     display: none;
 	overflow:hidden;
-    border: 1px solid rgba(0, 0, 0, 0.5);
 	-webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
-
-#jianpan .title {
+#keyboard .title {
     width: 100%;
     height: 20%;
-    border-bottom: 1px solid #dcdddd;
     padding: 0;
-    cursor: move;
 	font-size:1em;
 }
-#jianpan .jianpan_hide{
+#keyboard .keyboard_hide{
     width: 40px;
     float: right;
+    font-size: 24px;
+    cursor: pointer;
 }
-
-#xfjp {
+#xfkb {
     width: 100%;
     height: 80%;
 }
 #shift{
 	font-size:0.8em;
 }
-.jianpan {
-    color: #dcdddd;
-}
-
-.jianpan td {
-    color: #333333;
+.keyboard td {
     width: 10%;
     text-align: center;
     font-size: 1em;
+    cursor: pointer;
+}
+
+
+/*键盘皮肤CSS*/
+#keyboard.skin1 {
+    background: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #dcdddd;
+}
+#keyboard.skin1 .title{
+    border-bottom: 1px solid #dcdddd;
+}
+.skin1 .keyboard {
+    border-spacing:0;
+}
+
+.skin1 .keyboard td {
+    color: #333333;
     border-bottom: 1px solid #dcdddd;
     border-left: 1px solid #dcdddd;
 }
-
-.jianpan tr td:first-child {
+.skin1 .keyboard tr td:first-child {
     border-left: none;
 }
 
-.jianpan tr:last-child td {
+.skin1 .keyboard tr:last-child td {
     border-bottom: none;
 }
-
-.jianpan td:active {
-    /*background: #efeff0;*/
+.skin1 .keyboard td:active {
     -moz-box-shadow:0px 0px 10px #AAAAAA inset;
     -webkit-box-shadow:0px 0px 10px #AAAAAA inset;
     box-shadow:0px 0px 10px #AAAAAA inset;
+}
+
+
+#keyboard.skin2 {
+    background: #ffffff;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+#keyboard.skin2 .title{
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+.skin2 .keyboard {
+    border-spacing:5px;
+}
+
+.skin2 .keyboard td {
+    color: #333333;
+    border-radius: 5px;
+    border:1px solid rgba(0,0,0,0.3);
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 2px 4px rgba(0,0,0,.5);
+}
+.skin2 .keyboard td:active {
+    -moz-box-shadow:0px 0px 10px #ddd inset;
+    -webkit-box-shadow:0px 0px 10px #ddd inset;
+    box-shadow:0px 0px 10px #ddd inset;
 }

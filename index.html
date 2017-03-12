@@ -12,8 +12,8 @@
         <span></span>登录<span></span>
     </div>
     <label for="">
-    <input id="name" type="text" placeholder="账号" class="common input" name="username" onfocus="xfjianpan(this.id)">
-    <input id="password" type="password" placeholder="密码" class="common input psw-height" name="userpass" onfocus="xfjianpan(this.id)">
+    <input id="name" type="text" placeholder="账号" class="common input keyboard-bind" name="username">
+    <input id="password" type="password" placeholder="密码" class="common input psw-height keyboard-bind" name="userpass">
     </label>
     <button class="common login-btn">
         登录
@@ -22,9 +22,9 @@
 
 
 
-<div id="jianpan">
-    <div class="title" style="text-align:center;"><span id="jptitle"></span><span class="jianpan_hide" onclick="xfjianpan(false)">×</span></div>
-    <table id="xfjp" class="jianpan" cellspacing="0" cellpadding="0">
+<div id="keyboard">
+    <div class="title" style="text-align:center;"><span id="jptitle"></span><span class="keyboard_hide">×</span></div>
+    <table id="xfkb" class="keyboard" cellpadding="0">
         <tr>
             <td>1</td>
             <td>2</td>
@@ -75,5 +75,13 @@
     </table>
 </div>
 <script type="application/javascript" src="js/js.js"></script>
+<script type="text/javascript">
+
+// move设置是否能移动，skin选择键盘皮肤（目前只有1和2）
+Dmove_keyboard({
+    move:true,
+    skin:1
+})
+</script>
 </body>
 </html>
