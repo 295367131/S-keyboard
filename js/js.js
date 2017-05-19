@@ -1,9 +1,10 @@
 function Dmove_keyboard(obj){
 
-$("#keyboard").addClass("skin"+obj.skin);
+$("#"+obj.id).removeClass();
+$("#"+obj.id).addClass("skin"+obj.skin);
 
 //键盘部分JS
-$("#keyboard .title").css("line-height",$("#keyboard").height()/5+"px");
+$("#"+obj.id+" .title").css("line-height",$("#"+obj.id).height()/5+"px");
 
 $(".keyboard-bind").focus(function(){
     var input = $(this);
@@ -11,21 +12,23 @@ $(".keyboard-bind").focus(function(){
     var jpnub = $("#xfkb td").length;
 
     if(obj.move){
-        $("#keyboard .title").css("cursor","move");
-        move("keyboard");        //开启键盘可移动
+        $("#"+obj.id+" .title").css("cursor","move");
+        move(obj.id);        //开启键盘可移动
     }
+
+    // $(".jpskin")
 
 
     $("#xfkb td").unbind("click");
         
-    $("#keyboard").show();
+    $("#"+obj.id).show();
     var xfkb_text = input.val();                        //获取input框当前的val值
 
 
     $(".input_on").removeClass("input_on");
     input.addClass("input_on");                         //设置input框选中时的样式
 
-    $("#jptitle").html(input.attr("placeholder"));      //键盘标题，自动获取input的placeholder值
+    $(".jptitle").html(input.attr("placeholder"));      //键盘标题，自动获取input的placeholder值
 
     $("#xfkb td").click(function () {
         var click = $(this).html();                         //获取点击按键的内容
@@ -57,7 +60,7 @@ $(".keyboard-bind").focus(function(){
 
 $(".keyboard_hide").click(function(){
     $(".input_on").removeClass("input_on");                    //移除选中input的选中样式
-    $("#keyboard").hide();
+    $("#"+obj.id).hide();
 })
 
 

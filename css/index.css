@@ -82,7 +82,7 @@ body {
     width: 500px;
     height: 240px;
     display: none;
-	overflow:hidden;
+	/*overflow:hidden;*/
 	-webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -92,7 +92,41 @@ body {
     width: 100%;
     height: 20%;
     padding: 0;
-	font-size:1em;
+}
+#keyboard .title .jptitle{
+    font-size:1em;
+}
+#keyboard .jpskin{
+    float: left;
+    position: relative;
+    padding-left: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+#keyboard .jpskin:hover .jpskin-box{
+    display: block;
+}
+#keyboard .jpskin .jpskin-box{
+    display: none;
+    position: absolute;
+    width: 80px;
+    left: -81px;
+    top: 0px;
+    border-radius: 5px;
+}
+#keyboard .jpskin .jpskin-box .span{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    right: -6px;
+    top: 20px;
+    transform: rotate(45deg);
+}
+#keyboard .jpskin .jpskin-box ul{
+    list-style: none;
+    position: relative;
+    z-index: 2;
+    background: #ffffff;
 }
 #keyboard .keyboard_hide{
     width: 40px;
@@ -145,6 +179,27 @@ body {
     -webkit-box-shadow:0px 0px 10px #AAAAAA inset;
     box-shadow:0px 0px 10px #AAAAAA inset;
 }
+.skin1 .jpskin .jpskin-box{
+    background: #ffffff;
+    border: 1px solid #dcdddd;
+    border-radius: 5px;
+}
+.skin1 .jpskin .jpskin-box .span{
+    background: #fff;
+    border-top: 1px solid #dcdddd;
+    border-right: 1px solid #dcdddd;
+}
+.skin1 .jpskin .jpskin-box li{
+    border-bottom: 1px solid #dcdddd;
+}
+.skin1 .jpskin .jpskin-box li:last-child{
+    border-bottom: none;
+}
+.skin1 .jpskin .jpskin-box li:hover {
+    -moz-box-shadow:0px 0px 10px #AAAAAA inset;
+    -webkit-box-shadow:0px 0px 10px #AAAAAA inset;
+    box-shadow:0px 0px 10px #AAAAAA inset;
+}
 
 
 #keyboard.skin2 {
@@ -167,6 +222,29 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,.5);
 }
 .skin2 .keyboard td:active {
+    -moz-box-shadow:0px 0px 10px #ddd inset;
+    -webkit-box-shadow:0px 0px 10px #ddd inset;
+    box-shadow:0px 0px 10px #ddd inset;
+}
+.skin2 .jpskin .jpskin-box{
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+.skin2 .jpskin .jpskin-box .span{
+    background: #fff;
+    border-top: 1px solid rgba(0,0,0,0.3);
+    border-right: 1px solid rgba(0,0,0,0.3);
+}
+.skin2 .jpskin .jpskin-box li{
+    width: 58px;
+    margin: 10px;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.3);
+    box-shadow: 0 2px 4px rgba(0,0,0,.5);
+}
+.skin2 .jpskin .jpskin-box li:hover{
     -moz-box-shadow:0px 0px 10px #ddd inset;
     -webkit-box-shadow:0px 0px 10px #ddd inset;
     box-shadow:0px 0px 10px #ddd inset;
