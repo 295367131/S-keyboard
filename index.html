@@ -24,16 +24,17 @@
 
 <div id="keyboard">
     <div class="title" style="text-align:center;">
-    <span class="jpskin">皮肤
-        <div class="jpskin-box">
-            <span class="span"></span>
-            <ul>
-                <li onclick="Dmove_keyboard({id:'keyboard',skin:1})">1</li>
-                <li onclick="Dmove_keyboard({id:'keyboard',skin:2})">2</li>
-            </ul>
-        </div>
-    </span>
-    <span class="jptitle"></span><span class="keyboard_hide">×</span></div>
+        <span class="jpskin">皮肤
+            <div class="jpskin-box">
+                <span class="span"></span>
+                <ul>
+                    <li data-skin="1">1</li>
+                    <li data-skin="2">2</li>
+                </ul>
+            </div>
+        </span>
+        <span class="jptitle"></span><span class="keyboard_hide">×</span>
+    </div>
     <table id="xfkb" class="keyboard" cellpadding="0">
         <tr>
             <td>1</td>
@@ -72,7 +73,7 @@
             <td>空格</td>
         </tr>
         <tr>
-            <td id="shift">shift</td>
+            <td data-key="shift" style="font-size:0.8em;">shift</td>
             <td>z</td>
             <td>x</td>
             <td>c</td>
@@ -88,7 +89,7 @@
 <script type="text/javascript">
 
 // move设置是否能移动，skin选择键盘皮肤（目前只有1和2）
-Dmove_keyboard({
+$('#keyboard').Dmove_keyboard({
     id:"keyboard",
     move:true,
     skin:1
